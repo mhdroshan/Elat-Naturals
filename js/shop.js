@@ -132,7 +132,7 @@ window.createProductCard = function (product) {
     const saleActive = product.on_sale || isFirstItem; 
     
     const displayPrice = product.price;
-    const priceText = product.price ? `$${parseFloat(product.price).toFixed(2)}` : '$24.90';
+    const priceText = product.price ? `₹${parseFloat(product.price)}` : '₹249';
 
     const productName = product.name || product.product_name || 'Hydra Drops';
 

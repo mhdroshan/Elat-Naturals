@@ -39,12 +39,46 @@
     <!-- Header -->
     <header class="header">
         <div class="container header-inner">
-            <button class="mobile-menu-btn" aria-label="Menu">☰</button>
+            <button class="mobile-menu-btn" aria-label="Menu" id="mobile-menu-toggle">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="3" y1="12" x2="21" y2="12"></line>
+                    <line x1="3" y1="6" x2="21" y2="6"></line>
+                    <line x1="3" y1="18" x2="21" y2="18"></line>
+                </svg>
+            </button>
             <a href="index.html" class="brand-logo"><img src="./assets/images/logo.png" alt="Elat Naturals"></a>
-            <nav class="nav-links">
+            <nav class="nav-links" id="mobile-nav">
+                <div class="mobile-menu-header">
+                    <button class="mobile-menu-close" aria-label="Close Menu">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="18" y1="6" x2="6" y2="18"></line>
+                            <line x1="6" y1="6" x2="18" y2="18"></line>
+                        </svg>
+                    </button>
+                </div>
                 <a href="index.html" class="nav-link">Home</a>
                 <a href="shop.html" class="nav-link">Shop</a>
+                
+                <!-- Mobile Contact Section -->
+                <div class="mobile-contact-section">
+                    <h4 class="contact-title">Contact Us</h4>
+                    <div class="contact-items">
+                        <a href="https://wa.me/919544894588" class="contact-item">
+                            <svg width="20" height="20" fill="currentColor" viewBox="0 0 16 16"><path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326z"/></svg>
+                            <span>WhatsApp</span>
+                        </a>
+                        <a href="tel:+919544894588" class="contact-item">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <span>+91 95448 94588</span>
+                        </a>
+                        <a href="mailto:hello@elatnaturals.com" class="contact-item">
+                            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+                            <span>hello@elatnaturals.com</span>
+                        </a>
+                    </div>
+                </div>
             </nav>
+            <div class="mobile-menu-overlay"></div>
             <a href="https://wa.me/919544894588" class="btn btn-whatsapp hide-mobile" target="_blank" rel="noopener">Chat with Us</a>
         </div>
     </header>
@@ -59,7 +93,7 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <span class="hero-tag">DAVIC ORGANIC</span>
+            <span class="hero-tag">PURE ORGANIC</span>
             
             <h1 class="hero-title">As pure as<br>nature</h1>
             
@@ -86,20 +120,20 @@
         </div>
     </section>
 
-    <!-- Hair Oil Feature Section -->
+    <!-- Face Glow Oil Feature Section -->
     <section class="organic-brand-section">
         <div class="container organic-brand-inner">
             <div class="organic-brand-image">
                 <!-- Using one of the product images from /products -->
-                <img src="./assets/images/products/Hair-oil.jpeg" alt="Herbal Hair Oil" style="border-radius: 80px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); mix-blend-mode: multiply;">
+                <img src="./assets/images/glow-banner.png" alt="Face Glow Oil" style="mix-blend-mode: multiply;">
             </div>
             <div class="organic-brand-content">
-                <span class="organic-tag">ORGANIC HAIR CARE</span>
-                <h2 class="organic-title">Ayurvedic<br>Herbal Hair Oil</h2>
+                <span class="organic-tag">ILLUMINATING RITUAL</span>
+                <h2 class="organic-title">Glow Beyond<br>Nature</h2>
                 <p class="organic-text">
-                    A traditional Ayurvedic hair oil formulated with pure Bhringraj and Amla to reduce hair fall, promote healthy scalp nourishment, and stimulate new hair growth. Free from artificial fragrances and oils.
+                    Unlock your skin's true brilliance with our signature Face Glow Oil. A liquid gold elixir of Goat's Milk, Manjishta, and Licorice that doesn't just hydrate—it transforms. Experience a visible reduction in pigmentation and scars as you reveal a complexion that's naturally radiant, even-toned, and eternally youthful.
                 </p>
-                <a href="shop.html" class="btn-organic">READ MORE</a>
+                <a href="shop.html" class="btn-organic">SHOP THE GLOW</a>
             </div>
         </div>
     </section>
