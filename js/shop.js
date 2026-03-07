@@ -145,6 +145,7 @@ window.createProductCard = function (product) {
     </div>
     <div class="card-bottom-info">
         <h3 class="card-title">${productName}</h3>
+        <div class="card-quality">${product.size || ''}</div>
         <div class="card-price">
             ${saleActive ? `<span>${priceText}</span>` : `<span>${priceText}</span>`}
         </div>
