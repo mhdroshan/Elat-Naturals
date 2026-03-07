@@ -1,23 +1,63 @@
 /**
- * Main Application Script (Global Scope)
+ * Global application state
  */
+window.productsData = window.productsData || null;
 
-document.addEventListener('DOMContentLoaded', () => {
-    initHeader();
-    initShopFilters();
-    initAccordions();
-    initPDPGallery();
-    initPDPQuantity();
-    initMobileMenu();
+document.addEventListener('DOMContentLoaded', initializeApp);
 
-    // Connect product renderer to modal logic
-    if (window.setModalRenderer) {
-        window.setModalRenderer(openProductModal);
+/**
+ * Main application entry point
+ */
+async function initializeApp() {
+    try {
+        // 1. Try to fetch products data for "Automatic Sync" (requires local server)
+        const response = await fetch('./products.json');
+        if (response.ok) {
+            window.productsData = await response.json();
+            console.log('Successfully fetched live data from products.json');
+        }
+    } catch (error) {
+        console.warn('Fetch blocked by CORS (common on file:// protocol). Falling back to static data.');
+    } finally {
+        // 2. Regardless of fetch success, check if we have data (either from fetch or products.js fallback)
+        if (!window.productsData) {
+            const errorMsg = 'No product data found. Please run a local server (e.g. Live Server) for automatic JSON updates, or ensure js/products.js is loaded.';
+            console.error(errorMsg);
+            // Optionally: show a non-intrusive UI warning for the user
+        }
+
+        // 3. Initialize UI components
+        initHeader();
+        initShopFilters();
+        initAccordions();
+        initPDPGallery();
+        initPDPQuantity();
+        initMobileMenu();
+
+        if (window.setModalRenderer) {
+            window.setModalRenderer(openProductModal);
+        }
+
+        // 4. Page-specific content rendering
+        initPageContent();
+
+        // Close Modal Events
+        document.querySelector('.modal-close')?.addEventListener('click', closeProductModal);
+        document.querySelector('.modal-overlay')?.addEventListener('click', (e) => {
+            if (e.target.classList.contains('modal-overlay')) closeProductModal();
+        });
     }
+}
+
+/**
+ * Content initialization based on current page
+ */
+function initPageContent() {
+    if (!window.productsData) return;
 
     // Initialize Homepage if present
     const homeBestsellers = document.getElementById('ref-bestsellers-grid');
-    if (homeBestsellers && window.productsData) {
+    if (homeBestsellers) {
         const bestsellers = window.productsData.products.slice(0, 5);
         if (window.renderReferenceProductGrid) {
             window.renderReferenceProductGrid(homeBestsellers, bestsellers, window.productsData.currency);
@@ -26,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize Homepage Collection if present
     const collectionGrid = document.getElementById('homepage-collection');
-    if (collectionGrid && window.productsData) {
+    if (collectionGrid) {
         const homepageProducts = window.productsData.products.slice(0, 4);
         if (window.renderProductGrid) {
             window.renderProductGrid(collectionGrid, homepageProducts);
@@ -36,15 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize Shop page if present
     const shopGrid = document.getElementById('shop-grid');
     if (shopGrid && window.renderProductGrid) {
-        window.renderProductGrid(shopGrid, window.productsData ? window.productsData.products : window.products);
+        window.renderProductGrid(shopGrid, window.productsData.products);
     }
-
-    // Close Modal Events
-    document.querySelector('.modal-close')?.addEventListener('click', closeProductModal);
-    document.querySelector('.modal-overlay')?.addEventListener('click', (e) => {
-        if (e.target.classList.contains('modal-overlay')) closeProductModal();
-    });
-});
+}
 
 /**
  * Initialize sticky header background
@@ -62,35 +96,44 @@ function initHeader() {
     });
 }
 
-/**
- * Filtering logic for shop page
- */
 function initShopFilters() {
-    const filterInputs = document.querySelectorAll('.shop-sidebar input[type="radio"]');
+    const filterInputs = document.querySelectorAll('.shop-sidebar input[name="type"]');
+    const sortSelect = document.getElementById('sort-by');
     const shopGrid = document.getElementById('shop-grid');
 
-    if (!filterInputs.length || !shopGrid) return;
+    if (!shopGrid) return;
 
+    const applyShopLogic = () => {
+        const activeType = document.querySelector('input[name="type"]:checked')?.value || 'all';
+        const activeSort = sortSelect?.value || 'featured';
+        
+        let processedProducts = window.productsData ? [...window.productsData.products] : [];
+
+        // 1. Filter
+        if (activeType !== 'all') {
+            processedProducts = processedProducts.filter(p => p.type === activeType);
+        }
+
+        // 2. Sort
+        if (activeSort === 'price-low') {
+            processedProducts.sort((a, b) => a.price - b.price);
+        } else if (activeSort === 'price-high') {
+            processedProducts.sort((a, b) => b.price - a.price);
+        }
+        // 'featured' keeps original array order
+
+        if (window.renderProductGrid) {
+            window.renderProductGrid(shopGrid, processedProducts);
+        }
+    };
+
+    // Listen for filter changes
     filterInputs.forEach(input => {
-        input.addEventListener('change', () => {
-            // Gather active filters
-            const activeCategory = document.querySelector('input[name="category"]:checked')?.value;
-            const activeConcern = document.querySelector('input[name="concern"]:checked')?.value;
-
-            let filtered = window.productsData ? window.productsData.products : window.products;
-
-            if (activeCategory && activeCategory !== 'all') {
-                filtered = filtered.filter(p => (p.category === activeCategory || p.size === activeCategory));
-            }
-            if (activeConcern && activeConcern !== 'all') {
-                filtered = filtered.filter(p => p.concern === activeConcern);
-            }
-
-            if (window.renderProductGrid) {
-                window.renderProductGrid(shopGrid, filtered);
-            }
-        });
+        input.addEventListener('change', applyShopLogic);
     });
+
+    // Listen for sort changes
+    sortSelect?.addEventListener('change', applyShopLogic);
 }
 
 /**

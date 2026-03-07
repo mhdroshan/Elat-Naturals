@@ -6,9 +6,10 @@
       "id": "elat-hair-oil-100ml",
       "product_name": "Herbal Hair Oil",
       "size": "100ml",
+      "type": "haircare",
       "price": 350,
-      "old_price": 450,
-      "on_sale": true,
+      "old_price": null,
+      "on_sale": false,
       "image": "./assets/images/shop/tiles/hair-oil.png",
       "alternate_images": [
         "./assets/images/products/Hair-oil-alt-1.jpeg",
@@ -37,6 +38,7 @@
       "id": "elat-hibiscus-shampoo-200ml",
       "product_name": "Hibiscus Shampoo",
       "size": "200ml",
+      "type": "haircare",
       "price": 170,
       "image": "./assets/images/shop/tiles/shampoo.png",
       "alternate_images": [
@@ -63,6 +65,7 @@
       "id": "elat-face-glow-oil-15ml",
       "product_name": "Face Glow Oil",
       "size": "15ml",
+      "type": "face",
       "price": 230,
       "image": "./assets/images/shop/tiles/face-glow.png",
       "alternate_images": [
@@ -94,6 +97,7 @@
       "id": "elat-neem-aloevera-soap-100gm",
       "product_name": "Neem Aloevera Soap",
       "size": "100gm",
+      "type": "skincare",
       "price": 130,
       "image": "./assets/images/shop/tiles/neem-soap.png",
       "alternate_images": [
@@ -121,6 +125,7 @@
       "id": "elat-goat-milk-baby-soap-100gm",
       "product_name": "Goat Milk Baby Soap",
       "size": "100gm",
+      "type": "baby care",
       "price": 150,
       "image": "./assets/images/shop/tiles/baby-soap.png",
       "alternate_images": [
@@ -147,6 +152,7 @@
       "id": "elat-beetroot-lipbalm-8gm",
       "product_name": "Beetroot Lip Balm",
       "size": "8gm",
+      "type": "skincare",
       "price": 170,
       "image": "./assets/images/shop/tiles/lip-balm.png",
       "alternate_images": [
@@ -177,6 +183,7 @@
       "id": "elat-liptint-8gm",
       "product_name": "Natural Liptint",
       "size": "8gm",
+      "type": "face",
       "price": 220,
       "image": "./assets/images/shop/tiles/lip-tint.png",
       "alternate_images": [
@@ -204,6 +211,7 @@
       "id": "elat-aloevera-face-toner-100ml",
       "product_name": "Aloe Vera Face Toner",
       "size": "100ml",
+      "type": "face",
       "price": 190,
       "image": "./assets/images/bottle_placeholder.png",
       "alternate_images": [],
@@ -227,9 +235,10 @@
       "id": "elat-rose-glowing-cream-50gm",
       "product_name": "Rose Glowing Cream",
       "size": "50gm",
+      "type": "face",
       "price": 220,
-      "old_price": 299,
-      "on_sale": true,
+      "old_price": null,
+      "on_sale": false,
       "image": "./assets/images/shop/tiles/glowing-cream.png",
       "alternate_images": [
         "./assets/images/products/Glowing-cream-alt.jpeg"
@@ -255,21 +264,22 @@
     },
     {
       "id": "elat-aloevera-body-lotion-200ml",
-      "product_name": "Aloe Vera Cucumber Body Lotion",
+      "product_name": "Alovera Cucumber Body Lotion",
       "size": "200ml",
+      "type": "skincare",
       "price": 229,
-      "image": "./assets/images/bottle_placeholder.png",
+      "image": "./assets/images/shop/tiles/body-lotion.png",
       "alternate_images": [],
       "short_description": "Lightweight body lotion that deeply hydrates and soothes dry skin.",
       "key_ingredients": [
-        "Aloevera",
-        "Cucumber",
-        "Almond Oil"
+        "aloevera",
+        "cucumber",
+        "almond oil"
       ],
       "benefits": [
-        "Deep hydration",
-        "Smoothens skin tone and texture",
-        "Refreshes and promotes healthy skin"
+        "deep hydration",
+        "smoothens skin tone and texture",
+        "refreshes and promotes healthy skin"
       ],
       "similar_products": [
         "Goat Milk Baby Soap",
@@ -280,6 +290,7 @@
       "id": "elat-rosemary-hair-serum-50ml",
       "product_name": "Rosemary Hair Serum",
       "size": "50ml",
+      "type": "haircare",
       "price": 180,
       "image": "./assets/images/shop/tiles/hair-serum.png",
       "alternate_images": [],
@@ -302,8 +313,9 @@
     },
     {
       "id": "elat-face-pack-50gm",
-      "product_name": "Herbal Face Pack",
+      "product_name": "Herbal Face Packs",
       "size": "50gm",
+      "type": "face",
       "price": 199,
       "image": "./assets/images/bottle_placeholder.png",
       "alternate_images": [],
@@ -323,6 +335,30 @@
       "similar_products": [
         "Neem Aloevera Soap",
         "Face Glow Oil"
+      ]
+    },
+    {
+      "id": "elat-manjishta-gel-cream-50gm",
+      "product_name": "Manjishta Gel Cream",
+      "size": "50gm",
+      "type": "face",
+      "price": 220,
+      "image": "./assets/images/shop/tiles/Manjishta-gel-cream.png",
+      "alternate_images": [],
+      "short_description": "Lightweight gel cream that illuminates the skin and fights aging.",
+      "key_ingredients": [
+        "Manjishta",
+        "Aloevera"
+      ],
+      "benefits": [
+        "Reduces acne and pigmentations",
+        "Light weight formula",
+        "Makes skin glow and healthy",
+        "Reduces wrinkles and finelines"
+      ],
+      "similar_products": [
+        "Face Glow Oil",
+        "Rose Glowing Cream"
       ]
     }
   ]

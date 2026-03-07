@@ -2,7 +2,7 @@
  * WhatsApp Integration Utilities (Global Functions)
  */
 
-window.BUSINESS_PHONE = '919544894588'; // Updated contact number
+window.BUSINESS_PHONE = '918075996201'; // Updated contact number
 
 /**
  * Generates a WhatsApp wa.me URL with a prefilled message

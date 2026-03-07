@@ -136,31 +136,24 @@ window.createProductCard = function (product) {
 
     const productName = product.name || product.product_name || 'Hydra Drops';
 
-    const imageSrc = product.image || product.product_image || 'https://images.unsplash.com/photo-1620916297397-a4a5402a3c6c?q=80&w=400&fit=crop';
+    const imageSrc = product.image || product.product_image || './assets/images/bottle_placeholder.png';
 
     card.innerHTML = `
-    <div class="card-top-bar">
-        <button class="heart-icon-btn" aria-label="Add to wishlist">
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
-        </button>
-        ${saleActive ? '<span class="discount-badge">-20%</span>' : ''}
-    </div>
-    <div class="product-image-center">
-        <img src="${imageSrc}" style="mix-blend-mode: multiply; border-radius: 20px;" alt="${productName}" loading="lazy">
+    ${saleActive ? '<span class="discount-badge">-20%</span>' : ''}
+    <div class="product-image-wrap">
+        <img src="${imageSrc}" class="product-tile-img" alt="${productName}" loading="lazy">
     </div>
     <div class="card-bottom-info">
         <h3 class="card-title">${productName}</h3>
         <div class="card-price">
-            ${saleActive ? `<strong>${priceText}</strong> <del>${priceText}</del>` : `<span>${priceText}</span>`}
+            ${saleActive ? `<span>${priceText}</span>` : `<span>${priceText}</span>`}
         </div>
-        <button class="btn-buy-now">BUY NOW</button>
     </div>
     `;
 
     // Attach Event Listeners
-    const imgWrap = card.querySelector('.product-image-center');
+    const imgWrap = card.querySelector('.product-image-wrap');
     const title = card.querySelector('.card-title');
-    const buyNowBtn = card.querySelector('.btn-buy-now');
 
     const handleView = () => {
         if (window.globalModalRenderer) window.globalModalRenderer(product);
@@ -168,15 +161,6 @@ window.createProductCard = function (product) {
 
     if (imgWrap) imgWrap.addEventListener('click', handleView);
     if (title) title.addEventListener('click', handleView);
-
-    if (buyNowBtn) {
-        buyNowBtn.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (window.handleBuyNowClick) {
-                window.handleBuyNowClick(e, product);
-            }
-        });
-    }
 
     return card;
 }
