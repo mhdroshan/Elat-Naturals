@@ -212,18 +212,18 @@ window.productsData = {
             "size": "100ml",
             "type": "face",
             "price": 190,
-            "image": "./assets/images/bottle_placeholder.png",
+            "image": "./assets/images/shop/tiles/face-toner.png",
             "short_description": "Refreshing toner that tightens pores and hydrates the skin.",
             "alternate_images": [],
             "key_ingredients": [
-                "Aloevera",
-                "Tea Tree"
+                "aloevera",
+                "tea tree"
             ],
             "benefits": [
-                "Refreshes and tones skin",
-                "Reduces acne and pimples",
-                "Tightens pores",
-                "Balances pH level of the skin"
+                "refreshes and tones skin",
+                "reduces acne and pimples",
+                "tightens pores",
+                "balances PH level of the skin"
             ],
             "similar_products": [
                 "Face Glow Oil",
@@ -315,20 +315,20 @@ window.productsData = {
             "size": "50gm",
             "type": "face",
             "price": 199,
-            "image": "./assets/images/bottle_placeholder.png",
+            "image": "./assets/images/shop/tiles/face-pack.png",
             "short_description": "Ayurvedic face pack that detoxifies skin and enhances natural glow.",
             "alternate_images": [],
             "key_ingredients": [
-                "Manjishta",
-                "Neem",
-                "Orange Peel",
-                "Licorice"
+                "manjishta",
+                "neem",
+                "orange peel",
+                "licorice"
             ],
             "benefits": [
-                "Brightens complexion",
-                "Fades pigmentations",
-                "Suitable for all ages and all skin types",
-                "Fights ageing"
+                "brightens complexion",
+                "fades pigmentations",
+                "suitable for all ages and all type of skin",
+                "fights ageing"
             ],
             "similar_products": [
                 "Neem Aloevera Soap",

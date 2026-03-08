@@ -73,13 +73,19 @@ window.products = [
         id: 6,
         sku: 'EN-006',
         name: 'Aloe Vera Face Toner',
-        price: 600,
+        price: 190,
         category: 'face',
         concern: 'dryness',
-        image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?q=80&w=600&auto=format&fit=crop',
+        image: './assets/images/shop/tiles/face-toner.png',
         featured: false,
-        short_desc: 'Refreshing and pore-tightening mist for daily hydration.',
-        ingredients: 'Pure Aloe Vera hydrosol, Rose water, Witch Hazel.',
+        short_desc: 'Refreshing toner that tightens pores and hydrates the skin.',
+        ingredients: 'aloevera, tea tree',
+        benefits: [
+            "refreshes and tones skin",
+            "reduces acne and pimples",
+            "tightens pores",
+            "balances PH level of the skin"
+        ],
         how_to_use: 'Spritz onto face after cleansing or throughout the day.'
     },
     {

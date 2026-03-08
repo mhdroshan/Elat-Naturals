@@ -162,7 +162,7 @@ button {
   border-radius: 30px;
   font-weight: 600;
   @media (max-width: 364px){
-    font-size: 14px;
+    font-size: 13px;
     padding: .5rem 1rem;
   }
 }
@@ -221,6 +221,11 @@ button {
   display: none;
   font-size: 1.5rem;
   color: var(--color-primary);
+  transition: transform 0.2s;
+}
+
+.mobile-menu-btn:active {
+  transform: scale(0.9);
 }
 
 /* Trust Strip */
@@ -775,7 +780,7 @@ button {
 }
 
 .accordion-item {
-  border-bottom: 1px solid var(--color-border);
+  /* border-bottom: 1px solid var(--color-border); */
 }
 
 .accordion-header {
@@ -788,6 +793,9 @@ button {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+#modal-acc-ingredients{
+  text-transform: capitalize;
 }
 
 .accordion-icon {
@@ -1705,7 +1713,9 @@ button {
   margin-bottom: 1rem;
   font-family: var(--font-body);
 }
-
+.card-quality{
+  margin-bottom: 10px;
+}
 .ref-product-price,
 .product-price,
 .premium-card-price {
@@ -2045,6 +2055,7 @@ button {
 
   .mobile-menu-btn {
     display: block;
+    padding-top: 8px;
   }
 
   .footer-grid {
@@ -2328,4 +2339,17 @@ button {
 
 .sort-select:hover {
     border-color: var(--color-primary);
+}
+.founder-image{
+  flex: 1; min-width: 300px;
+}
+.founder-image img{
+  border-radius: 4px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  max-height: 550px;
+  object-fit: cover;
+  width: 90%;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
