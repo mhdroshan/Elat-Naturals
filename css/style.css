@@ -152,6 +152,7 @@ button {
 .btn-outline:hover {
   background-color: var(--color-primary);
   color: var(--color-white);
+  border-color: var(--color-primary);
 }
 
 .btn-whatsapp {
@@ -247,6 +248,9 @@ button {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  @media (max-width: 370px){
+    font-size: 4.3vw;
+  }
 }
 
 /* Hero Section */
@@ -288,8 +292,11 @@ button {
   font-family: var(--font-heading);
   font-size: 4.5rem;
   margin-bottom: 0.5rem;
-  line-height: 1.15;
+  line-height: 1;
   font-weight: 400;
+  @media (max-width: 377px) {
+    font-size: 14vw;
+  }
 }
 
 .hero-subtitle {
@@ -320,8 +327,8 @@ button {
 }
 
 .btn-hero:hover {
-  background-color: var(--color-secondary);
-  color: #273020;
+  background-color: var(--color-primary);
+  color: #fff;
 }
 
 /* Organic Brand Section */
@@ -400,8 +407,9 @@ button {
 }
 
 .btn-organic:hover {
-    background: var(--color-text);
+    background: var(--color-primary);
     color: var(--color-white);
+    border-color: var(--color-primary);
 }
 
 @media (max-width: 768px) {
@@ -2099,6 +2107,9 @@ button {
   align-items: center;
   justify-content: center;
   transition: transform var(--transition-normal);
+  @media (max-width: 768px) {
+    min-width: 100%;
+  }
 }
 
 .feature-card-1 {
@@ -2340,8 +2351,13 @@ button {
 .sort-select:hover {
     border-color: var(--color-primary);
 }
-.founder-image{
-  flex: 1; min-width: 300px;
+.founder-image,
+.founder-text-content{
+  flex: 1;
+  min-width: 300px;
+    @media (max-width: 768px) {
+      min-width: 100%;
+    }
 }
 .founder-image img{
   border-radius: 4px;
