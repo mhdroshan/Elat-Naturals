@@ -32,6 +32,7 @@ async function initializeApp() {
         initAccordions();
         initPDPGallery();
         initPDPQuantity();
+        initModalQuantity();
         initMobileMenu();
 
         if (window.setModalRenderer) {
@@ -210,6 +211,10 @@ function openProductModal(product) {
     overlay.querySelector('.modal-price').textContent = `₹${product.price}`;
     overlay.querySelector('.modal-description').textContent = product.short_desc || product.short_description;
 
+    // Reset Quantity
+    const qtyInput = overlay.querySelector('.modal-qty-input');
+    if (qtyInput) qtyInput.value = 1;
+
     // Fill accordions
     const accDesc = overlay.querySelector('#modal-acc-desc');
     const accIng = overlay.querySelector('#modal-acc-ingredients');
@@ -235,7 +240,9 @@ function openProductModal(product) {
 
         newBuyBtn.addEventListener('click', (e) => {
             if (window.handleBuyNowClick) {
-                window.handleBuyNowClick(e, product);
+                const qtyInput = overlay.querySelector('.modal-qty-input');
+                const qty = qtyInput ? parseInt(qtyInput.value) || 1 : 1;
+                window.handleBuyNowClick(e, { ...product, selectedQuantity: qty });
             }
         });
     }
@@ -307,7 +314,38 @@ function initPDPQuantity() {
             btn.classList.add('active');
         });
     });
-}/**
+}
+
+/**
+ * Initialize Modal Quantity Selector
+ */
+function initModalQuantity() {
+    const qtyInput = document.querySelector('.modal-qty-input');
+    const decrementBtn = document.querySelector('.modal-qty-btn.decrease');
+    const incrementBtn = document.querySelector('.modal-qty-btn.increase');
+
+    if (!qtyInput || !decrementBtn || !incrementBtn) return;
+
+    decrementBtn.addEventListener('click', () => {
+        let currentVal = parseInt(qtyInput.value) || 1;
+        if (currentVal > 1) {
+            qtyInput.value = currentVal - 1;
+        }
+    });
+
+    incrementBtn.addEventListener('click', () => {
+        let currentVal = parseInt(qtyInput.value) || 1;
+        qtyInput.value = currentVal + 1;
+    });
+
+    // Ensure manual input stays within boundaries
+    qtyInput.addEventListener('change', () => {
+        let val = parseInt(qtyInput.value);
+        if (isNaN(val) || val < 1) qtyInput.value = 1;
+    });
+}
+
+/**
  * Initialize Mobile Menu
  */
 function initMobileMenu() {

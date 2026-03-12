@@ -223,6 +223,19 @@
                 <div class="modal-price">₹0</div>
                 <p class="modal-description">Short description of the product.</p>
                 
+                <div class="modal-quantity" style="margin: 1.5rem 0; display: flex; align-items: center; gap: 1rem; font-family: var(--font-body);">
+                    <label for="modal-qty" style="font-weight: 500; font-size: 0.875rem; text-transform: uppercase; letter-spacing: 1px; color: var(--color-text-light);">Quantity:</label>
+                    <div class="qty-selector" style="display: flex; align-items: center; border: 1px solid var(--color-border); border-radius: 2px; overflow: hidden; height: 40px; background: var(--color-white);">
+                        <button type="button" class="modal-qty-btn decrease" aria-label="Decrease quantity" style="padding: 0 1rem; background: transparent; border: none; height: 100%; cursor: pointer; font-size: 1.25rem; color: var(--color-text); transition: background var(--transition-fast);">
+                            &minus;
+                        </button>
+                        <input type="number" id="modal-qty" class="modal-qty-input" value="1" min="1" max="100" style="width: 3rem; text-align: center; border: none; border-left: 1px solid var(--color-border); border-right: 1px solid var(--color-border); height: 100%; font-size: 1rem; font-family: var(--font-body); font-weight: 500; color: var(--color-text); background: transparent; -moz-appearance: textfield; margin: 0; outline: none;">
+                        <button type="button" class="modal-qty-btn increase" aria-label="Increase quantity" style="padding: 0 1rem; background: transparent; border: none; height: 100%; cursor: pointer; font-size: 1.25rem; color: var(--color-text); transition: background var(--transition-fast);">
+                            &plus;
+                        </button>
+                    </div>
+                </div>
+                
                 <div class="modal-accordion">
                     <div class="accordion-item">
                         <button class="accordion-header">
